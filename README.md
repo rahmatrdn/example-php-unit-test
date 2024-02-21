@@ -1,5 +1,5 @@
 # Example Implementation Unit Testing in PHP
-Ini adalah contoh project yang ada unit testnya. Disini menggunakan Laravel, namun ini bisa kamu implementasikan di Framework yang lain (Yii, Codeigniter, etc.).
+Contoh Project PHP dengan implementasi Unit Testing. Disini menggunakan Framework Laravel, namun kamu bisa implementasikan pada Framework yang lain (Yii, Codeigniter, etc.).
 
 ## Contact
 | Name              | Email                           | Role       |
@@ -27,8 +27,9 @@ Perhatian: Pastikan versi PHP sama dengan Prerequisite diatas!
     ```
     composer update
     ```
+2. Jalankan Test!
 
-## How To Run
+## How To Run The Tests
 > **Running Test (Tanpa cek Coverage)**
 ```
 ./vendor/bin/phpunit tests --testdox
