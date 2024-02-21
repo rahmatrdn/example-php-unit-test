@@ -1,41 +1,67 @@
-# Example Implementation Unit Testing in PHP
-Ini adalah contoh project yang ada unit testnya. Disini menggunakan Laravel, namun ini bisa kamu implementasikan di Framework yang lain (Yii, Codeigniter, etc.).
-
-## Contact
-| Name              | Email                           | Role       |
-| :----------------:|:-------------------------------:|:----------:|
-| Rahmat Ramadhan Putra  | rahmatrdn.dev@gmail.com    | Author   |
-
-## Prerequisite
-- Laravel 10.44.0
-- PHP 8.1.10
-- PHP Extension Xdebug
-- PHPUnit 9.6.16
-- Codeception Specify
-- Xdebug v3.2.2 (Optional untuk melihat code coverage)
-
-## Structure Architecture
-Menggunakan MVC (Model-View-Controller) yang di modif menjadi **Clean Architecture**.
-- Controller : Sebagai handle request dan response
-- Usecase : Layer untuk menulis business logic
-- Repository : Layer untuk mengelola data (database, 3rd party API, etc.)
-- Entity : Layer untuk mendifinisikan object data
-
-## How To Install
-Perhatian: Pastikan versi PHP sama dengan Prerequisite diatas!
-1. Composer Update
-    ```
-    composer update
-    ```
-
-## How To Run
-> **Running Test (Tanpa cek Coverage)**
-```
-./vendor/bin/phpunit tests --testdox
-```
-
-> **Running Tests dengan cek Coverage**
-    Pastikan sudah terinstall Xdebug pada PHPnya.
-```
-./vendor/bin/phpunit --testdox --coverage-html tests/coverage
-```
+{
+    "name": "laravel/laravel",
+    "type": "project",
+    "description": "The skeleton application for the Laravel framework.",
+    "keywords": ["laravel", "framework"],
+    "license": "MIT",
+    "require": {
+        "php": "^8.1",
+        "guzzlehttp/guzzle": "^7.2",
+        "laravel/framework": "^10.10",
+        "laravel/sanctum": "^3.3",
+        "laravel/tinker": "^2.8"
+    },
+    "require-dev": {
+        "codeception/specify": "^2.0.0",
+        "fakerphp/faker": "^1.9.1",
+        "laravel/pint": "^1.0",
+        "laravel/sail": "^1.18",
+        "mockery/mockery": "^1.4.4",
+        "nunomaduro/collision": "^7.0",
+        "phpunit/phpunit": "^9.6.16",
+        "spatie/laravel-ignition": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
