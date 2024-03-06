@@ -9,10 +9,9 @@ Contoh Project PHP dengan implementasi Unit Testing. Disini menggunakan Framewor
 ## Prerequisite
 - Laravel 10.44.0
 - PHP 8.1.10
-- PHP Extension Xdebug
 - PHPUnit 9.6.16
 - Codeception Specify
-- Xdebug v3.2.2 (Optional untuk melihat code coverage)
+- PHP Extension Xdebug v3.2.2 (Optional untuk melihat code coverage)
 
 ## Structure Architecture
 Menggunakan MVC (Model-View-Controller) yang di modif menjadi **Clean Architecture**.
